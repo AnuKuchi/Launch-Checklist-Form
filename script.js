@@ -1,4 +1,4 @@
-git remote add origin https://github.com/AnuKuchi/Launch-Checklist-Form.git// Write your JavaScript code here!
+// Write your JavaScript code here!
 
 window.addEventListener("load", function() {
 
@@ -8,6 +8,7 @@ window.addEventListener("load", function() {
       response.json().then(function(json) {
          const div = document.getElementById("missionTarget");
          let target = Math.floor(Math.random() * json.length);
+
          // Add HTML that includes the JSON data
          div.innerHTML = `<h2>Mission Destination</h2>
          <ol>
@@ -36,10 +37,12 @@ window.addEventListener("load", function() {
          let launchStatus = document.getElementById("launchStatus");
 
          if (Pilot.value === "" || CoPilot.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
-            alert("All fields are Required!");                        
+            alert("All fields are Required!");
+                                    
          }  
-         if ((String(Pilot.value) === "false") || (String(CoPilot.value) === "false")) {
-            alert("Pilot and Copilot fields must be names. No numbers or Special charaters!");            
+         if (!isNaN(Pilot.value) || isNaN(CoPilot.value)) {
+            alert("Pilot and Copilot fields must be names. No numbers or Special charaters!");
+            
          } 
         /* if ((isNan(fuelLevel.value) === "true") || (isNaN(cargoMass.value) === "true")) {
             alert("Enter a valid Number only!");            
